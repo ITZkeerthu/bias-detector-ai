@@ -55,10 +55,33 @@ router.post('/signup', async (req, res) => {
     return res.status(400).json({ error: 'email and password are required', code: 'VALIDATION_ERROR' });
   }
 
-  const { data, error } = await authClient.auth.signUp({ email, password });
-  if (error) return res.status(400).json({ error: error.message, code: 'SIGNUP_FAILED' });
+  try {
+    // Use the Admin client (supabase) instead of authClient to bypass verification
+    const { data, error } = await supabase.auth.admin.createUser({
+      email,
+      password,
+      email_confirm: true // This bypasses the Gmail/SMTP verification requirement
+    });
 
-  return res.status(201).json({ message: 'Account created. Check your email to confirm.', user_id: data.user?.id });
+    if (error) {
+      return res.status(400).json({ error: error.message, code: 'SIGNUP_FAILED' });
+    }
+
+    // Ensure public.users entry is created immediately for the new user
+    await supabase.from('users').upsert({ 
+      id: data.user.id, 
+      email: data.user.email,
+      role: 'analyst' // Default role
+    }, { onConflict: 'id' });
+
+    return res.status(201).json({ 
+      message: 'Account created and verified successfully. You can now login.', 
+      user_id: data.user?.id 
+    });
+  } catch (err) {
+    console.error('Signup error:', err);
+    return res.status(500).json({ error: 'Internal server error during signup', code: 'INTERNAL_ERROR' });
+  }
 });
 
 module.exports = router;
