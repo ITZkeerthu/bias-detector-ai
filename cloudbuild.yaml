@@ -1,0 +1,12 @@
+steps:
+# Build Backend
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/bias-detector-build-with-ai/backend', '-f', 'backend.Dockerfile', '.']
+
+# Build Detector
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/bias-detector-build-with-ai/detector', '-f', 'detector.Dockerfile', '.']
+
+images:
+- 'gcr.io/bias-detector-build-with-ai/backend'
+- 'gcr.io/bias-detector-build-with-ai/detector'

@@ -1,0 +1,78 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: bias-detector-service
+  namespace: bias-detector-build-with-ai
+  annotations:
+    run.googleapis.com/launch-stage: BETA
+spec:
+  template:
+    spec:
+      containers:
+      # Main Backend + Frontend
+      - name: main
+        image: gcr.io/bias-detector-build-with-ai/backend
+        ports:
+        - containerPort: 3000
+        env:
+        - name: BIAS_DETECTOR_URL
+          value: "http://localhost:5001"
+        - name: NODE_ENV
+          value: "production"
+        - name: BIAS_THRESHOLD
+          value: "30"
+        - name: ALLOW_FORCE_BIAS
+          value: "true"
+        - name: SUPABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: SUPABASE_URL
+              key: latest
+        - name: SUPABASE_ANON_KEY
+          valueFrom:
+            secretKeyRef:
+              name: SUPABASE_ANON_KEY
+              key: latest
+        - name: SUPABASE_SERVICE_ROLE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: SUPABASE_SERVICE_ROLE_KEY
+              key: latest
+        - name: SUPABASE_JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: SUPABASE_JWT_SECRET
+              key: latest
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: DATABASE_URL
+              key: latest
+        - name: NVIDIA_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: NVIDIA_API_KEY
+              key: latest
+        - name: GITHUB_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: GITHUB_API_KEY
+              key: latest
+        - name: GOOGLE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: GOOGLE_API_KEY
+              key: latest
+        - name: ENCRYPTION_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: ENCRYPTION_SECRET
+              key: latest
+
+      # Sidecar Python Tool
+      - name: detector
+        image: gcr.io/bias-detector-build-with-ai/detector
+        startupProbe:
+          httpGet:
+            port: 5001
+            path: /health

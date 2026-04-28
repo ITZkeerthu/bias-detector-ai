@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Bias Firewall - Eliminate Bias. Trust Every Decision.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+</head>
+  <body class="bg-navy-950 text-white antialiased">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+          </div>
+          <span class="text-lg font-bold tracking-tight">AI Bias Firewall</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#how-it-works" class="text-sm text-white/60 hover:text-white transition-colors">How It Works</a>
+          <a href="#features" class="text-sm text-white/60 hover:text-white transition-colors">Features</a>
+          <a href="#use-cases" class="text-sm text-white/60 hover:text-white transition-colors">Use Cases</a>
+          <a href="/chat.html" class="text-sm text-white/60 hover:text-white transition-colors">Chat</a>
+          <a href="/dashboard.html" class="text-sm text-white/60 hover:text-white transition-colors">Dashboard</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/chat.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+            Try Live Demo
+          </a>
+          <a href="/dashboard.html" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-gradient-to-r from-accent-blue to-accent-cyan text-white hover:opacity-90 transition-all btn-glow">
+            Dashboard
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-grid">
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950"></div>
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-blue/10 rounded-full blur-[128px]"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-cyan/10 rounded-full blur-[128px]"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-accent-cyan mb-6">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent-cyan status-live"></span>
+              Real-Time Bias Detection Active
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6">
+              Eliminate Bias.<br />
+              <span class="gradient-text">Trust Every Decision.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-white/60 leading-relaxed mb-10 max-w-lg">
+              AI Bias Firewall detects, audits, and neutralizes bias in real-time AI responses. Build AI systems that are fair, transparent, and trustworthy.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="/chat.html" class="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold rounded-xl bg-gradient-to-r from-accent-blue to-accent-cyan text-white hover:opacity-90 transition-all btn-glow">
+                Try Live Demo
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/dashboard.html" class="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                View Dashboard
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal" style="transition-delay: 0.2s">
+            <div class="glass-panel rounded-2xl p-1 glow-blue">
+              <div class="bg-navy-900/80 rounded-xl overflow-hidden">
+                <div class="flex items-center gap-3 px-4 py-3 border-b border-white/5">
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 rounded-full bg-accent-red/60"></div>
+                    <div class="w-3 h-3 rounded-full bg-accent-amber/60"></div>
+                    <div class="w-3 h-3 rounded-full bg-accent-green/60"></div>
+                  </div>
+                  <span class="text-xs text-white/40 font-medium">AI Bias Firewall - Live</span>
+                  <div class="ml-auto flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-accent-green status-live"></span>
+                    <span class="text-xs text-accent-green font-medium">LIVE</span>
+                  </div>
+                </div>
+                <div id="hero-chat" class="p-4 space-y-4 min-h-[320px]">
+                  <div class="flex justify-end">
+                    <div class="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-md bg-accent-blue/20 text-sm">
+                      Review this candidate's resume for the senior role
+                    </div>
+                  </div>
+                  <div class="flex justify-start">
+                    <div class="max-w-[85%]">
+                      <div class="px-4 py-2.5 rounded-2xl rounded-bl-md bg-white/5 text-sm leading-relaxed">
+                        <span id="hero-typing-text"></span><span id="hero-cursor" class="animate-typing">|</span>
+                      </div>
+                      <div class="flex items-center gap-2 mt-2">
+                        <span class="bias-high text-[10px] font-semibold px-2 py-0.5 rounded-full">HIGH BIAS</span>
+                        <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-accent-cyan/15 text-accent-cyan border border-accent-cyan/30">Wrapper Applied</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex justify-start">
+                    <div class="max-w-[85%]">
+                      <div class="px-4 py-2.5 rounded-2xl rounded-bl-md bg-accent-green/5 border border-accent-green/20 text-sm leading-relaxed">
+                        <span class="text-accent-green text-xs font-semibold block mb-1">Neutral Response</span>
+                        The candidate meets the required qualifications for the senior role based on experience and skills.
+                      </div>
+                      <div class="flex items-center gap-2 mt-2">
+                        <span class="bias-low text-[10px] font-semibold px-2 py-0.5 rounded-full">LOW BIAS</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST / SOCIAL PROOF -->
+    <section class="relative py-20 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <p class="text-sm text-white/40 font-medium uppercase tracking-widest mb-10 reveal">Built for Responsible AI Systems</p>
+        <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 reveal" style="transition-delay: 0.1s">
+          <div class="flex items-center gap-2 text-white/20 hover:text-white/40 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.282 8.858a6.26 6.26 0 00-1.798-2.694 6.166 6.166 0 00-2.814-1.538A6.248 6.248 0 0014.4 4.16a6.166 6.166 0 00-2.4 1.538A6.166 6.166 0 009.6 4.16a6.248 6.248 0 00-3.27.466 6.166 6.166 0 00-2.814 1.538A6.26 6.26 0 001.718 8.858C.924 10.374.5 12.094.5 13.842c0 1.748.424 3.468 1.218 4.984a6.26 6.26 0 001.798 2.694 6.166 6.166 0 002.814 1.538 6.248 6.248 0 003.27.466 6.166 6.166 0 002.4-1.538 6.166 6.166 0 002.4 1.538 6.248 6.248 0 003.27-.466 6.166 6.166 0 002.814-1.538 6.26 6.26 0 001.798-2.694A10.16 10.16 0 0023.5 13.842c0-1.748-.424-3.468-1.218-4.984z"/></svg>
+            <span class="text-sm font-semibold tracking-wide">OpenAI</span>
+          </div>
+          <div class="flex items-center gap-2 text-white/20 hover:text-white/40 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span class="text-sm font-semibold tracking-wide">Google AI</span>
+          </div>
+          <div class="flex items-center gap-2 text-white/20 hover:text-white/40 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/></svg>
+            <span class="text-sm font-semibold tracking-wide">Meta AI</span>
+          </div>
+          <div class="flex items-center gap-2 text-white/20 hover:text-white/40 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span class="text-sm font-semibold tracking-wide">Anthropic</span>
+          </div>
+          <div class="flex items-center gap-2 text-white/20 hover:text-white/40 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2a8 8 0 110 16 8 8 0 010-16zm-1 4v4h2v-4h-2zm0 6v2h2v-2h-2z"/></svg>
+            <span class="text-sm font-semibold tracking-wide">Hugging Face</span>
+          </div>
+        </div>
+        <p class="text-xs text-white/25 mt-8 reveal" style="transition-delay: 0.2s">Trusted by teams building responsible AI at scale</p>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="relative py-24">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-navy-900/50 to-transparent"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+          <p class="text-white/50 text-lg max-w-2xl mx-auto">Three steps to ensure every AI response is fair, auditable, and bias-free.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-8 text-center group transition-all duration-300 hover:-translate-y-1">
+            <div class="w-14 h-14 mx-auto mb-6 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center group-hover:bg-accent-blue/20 transition-colors">
+              <svg class="w-7 h-7 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M8.25 12h7.5" />
+              </svg>
+            </div>
+            <div class="text-xs font-bold text-accent-blue uppercase tracking-widest mb-3">Step 1</div>
+            <h3 class="text-xl font-bold mb-3">Detect Bias</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Scan AI responses in real-time for protected attribute bias across gender, race, age, and more.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-8 text-center group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.1s">
+            <div class="w-14 h-14 mx-auto mb-6 rounded-xl bg-accent-amber/10 border border-accent-amber/20 flex items-center justify-center group-hover:bg-accent-amber/20 transition-colors">
+              <svg class="w-7 h-7 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+              </svg>
+            </div>
+            <div class="text-xs font-bold text-accent-amber uppercase tracking-widest mb-3">Step 2</div>
+            <h3 class="text-xl font-bold mb-3">Audit Response</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Generate detailed audit logs with decision points, bias probability scores, and explainable reasoning.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-8 text-center group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.2s">
+            <div class="w-14 h-14 mx-auto mb-6 rounded-xl bg-accent-green/10 border border-accent-green/20 flex items-center justify-center group-hover:bg-accent-green/20 transition-colors">
+              <svg class="w-7 h-7 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <div class="text-xs font-bold text-accent-green uppercase tracking-widest mb-3">Step 3</div>
+            <h3 class="text-xl font-bold mb-3">Apply Neutral Wrapper</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Automatically rewrite biased outputs with neutral, fair language while preserving intent and accuracy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE PIPELINE VISUAL -->
+    <section class="relative py-24 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">The Bias Firewall Pipeline</h2>
+          <p class="text-white/50 text-lg">Every AI response passes through 5 stages of protection.</p>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-center gap-2 md:gap-4 flex-wrap md:flex-nowrap">
+            <div class="flex flex-col items-center gap-2 min-w-[80px]">
+              <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl glass-panel flex items-center justify-center glow-blue group hover:scale-105 transition-transform">
+                <svg class="w-8 h-8 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18h-.25a.75.75 0 01-.75-.75v-4.5a.75.75 0 01.75-.75h.25" /></svg>
+              </div>
+              <span class="text-xs font-semibold text-white/60">INPUT</span>
+            </div>
+            <div class="hidden md:block w-12 h-0.5 bg-gradient-to-r from-accent-blue to-accent-cyan pipeline-connector rounded-full"></div>
+            <div class="md:hidden w-0.5 h-8 bg-gradient-to-b from-accent-blue to-accent-cyan rounded-full"></div>
+            <div class="flex flex-col items-center gap-2 min-w-[80px]">
+              <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl glass-panel flex items-center justify-center glow-cyan group hover:scale-105 transition-transform">
+                <svg class="w-8 h-8 text-accent-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5" /></svg>
+              </div>
+              <span class="text-xs font-semibold text-white/60">SCAN</span>
+            </div>
+            <div class="hidden md:block w-12 h-0.5 bg-gradient-to-r from-accent-cyan to-accent-amber pipeline-connector rounded-full"></div>
+            <div class="md:hidden w-0.5 h-8 bg-gradient-to-b from-accent-cyan to-accent-amber rounded-full"></div>
+            <div class="flex flex-col items-center gap-2 min-w-[80px]">
+              <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl glass-panel flex items-center justify-center group hover:scale-105 transition-transform" style="box-shadow: 0 0 20px rgba(245, 158, 11, 0.15)">
+                <svg class="w-8 h-8 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" /></svg>
+              </div>
+              <span class="text-xs font-semibold text-white/60">AUDIT</span>
+            </div>
+            <div class="hidden md:block w-12 h-0.5 bg-gradient-to-r from-accent-amber to-accent-green pipeline-connector rounded-full"></div>
+            <div class="md:hidden w-0.5 h-8 bg-gradient-to-b from-accent-amber to-accent-green rounded-full"></div>
+            <div class="flex flex-col items-center gap-2 min-w-[80px]">
+              <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl glass-panel flex items-center justify-center glow-green group hover:scale-105 transition-transform">
+                <svg class="w-8 h-8 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+              </div>
+              <span class="text-xs font-semibold text-white/60">WRAP</span>
+            </div>
+            <div class="hidden md:block w-12 h-0.5 bg-accent-green/40 pipeline-connector rounded-full"></div>
+            <div class="md:hidden w-0.5 h-8 bg-accent-green/40 rounded-full"></div>
+            <div class="flex flex-col items-center gap-2 min-w-[80px]">
+              <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl glass-panel flex items-center justify-center glow-green group hover:scale-105 transition-transform">
+                <svg class="w-8 h-8 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <span class="text-xs font-semibold text-white/60">OUTPUT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="relative py-24">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-navy-900/30 to-transparent"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Powerful Features</h2>
+          <p class="text-white/50 text-lg max-w-2xl mx-auto">Everything you need to build fair, auditable AI systems.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1">
+            <div class="w-10 h-10 rounded-lg bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-4 group-hover:bg-accent-blue/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Real-Time Bias Detection</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Instantly identify bias patterns as AI generates responses, with sub-100ms detection latency.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.05s">
+            <div class="w-10 h-10 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mb-4 group-hover:bg-accent-cyan/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Protected Attribute Mapping</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Comprehensive mapping of protected attributes including gender, race, age, religion, and disability.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.1s">
+            <div class="w-10 h-10 rounded-lg bg-accent-green/10 border border-accent-green/20 flex items-center justify-center mb-4 group-hover:bg-accent-green/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Explainable AI Decisions</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Every bias correction comes with a full explanation trail showing why and how the decision was made.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.15s">
+            <div class="w-10 h-10 rounded-lg bg-accent-amber/10 border border-accent-amber/20 flex items-center justify-center mb-4 group-hover:bg-accent-amber/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Admin Dashboard Analytics</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Comprehensive analytics dashboard with bias trends, heatmaps, and audit logs for compliance.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.2s">
+            <div class="w-10 h-10 rounded-lg bg-accent-red/10 border border-accent-red/20 flex items-center justify-center mb-4 group-hover:bg-accent-red/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Retraining Dataset Export</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Export bias-corrected datasets in JSONL format for model retraining and continuous improvement.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.25s">
+            <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-colors">
+              <svg class="w-5 h-5 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Enterprise Security</h3>
+            <p class="text-sm text-white/50 leading-relaxed">SOC 2 compliant with end-to-end encryption, role-based access, and full audit trails.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD PREVIEW -->
+    <section class="relative py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Dashboard Preview</h2>
+          <p class="text-white/50 text-lg">Monitor bias metrics, audit logs, and compliance in real-time.</p>
+        </div>
+        <div class="reveal glass-panel rounded-2xl p-1 glow-blue">
+          <div class="bg-navy-900/80 rounded-xl p-6 md:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75z" /></svg>
+                </div>
+                <span class="font-bold text-sm">AI Bias Firewall Dashboard</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-white/40">
+                <span class="w-2 h-2 rounded-full bg-accent-green status-live"></span>
+                Live
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              <div class="glass-panel rounded-xl p-4">
+                <div class="text-xs text-white/40 mb-1">Total Sessions</div>
+                <div class="text-2xl font-bold">2,847</div>
+                <div class="text-xs text-accent-green mt-1">+12.5%</div>
+              </div>
+              <div class="glass-panel rounded-xl p-4">
+                <div class="text-xs text-white/40 mb-1">Avg Bias Score</div>
+                <div class="text-2xl font-bold">23<span class="text-base text-white/40">%</span></div>
+                <div class="text-xs text-accent-green mt-1">-4.2%</div>
+              </div>
+              <div class="glass-panel rounded-xl p-4">
+                <div class="text-xs text-white/40 mb-1">Wrapper Rate</div>
+                <div class="text-2xl font-bold">67<span class="text-base text-white/40">%</span></div>
+                <div class="text-xs text-accent-amber mt-1">+2.1%</div>
+              </div>
+            </div>
+            <div class="glass-panel rounded-xl p-4 mb-6">
+              <div class="text-xs text-white/40 mb-3">Bias Score Over Time</div>
+              <div class="h-32 flex items-end gap-1">
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 60%"></div>
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 45%"></div>
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 70%"></div>
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 55%"></div>
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 40%"></div>
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 35%"></div>
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 50%"></div>
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 30%"></div>
+                <div class="flex-1 bg-accent-blue/20 rounded-t" style="height: 25%"></div>
+                <div class="flex-1 bg-accent-cyan/30 rounded-t" style="height: 20%"></div>
+                <div class="flex-1 bg-accent-cyan/30 rounded-t" style="height: 22%"></div>
+                <div class="flex-1 bg-accent-cyan/30 rounded-t" style="height: 18%"></div>
+              </div>
+            </div>
+            <div class="glass-panel rounded-xl p-4">
+              <div class="text-xs text-white/40 mb-3">Bias Heatmap by Attribute</div>
+              <div class="grid grid-cols-4 gap-2">
+                <div class="text-center">
+                  <div class="heatmap-cell h-10 rounded-lg bg-accent-red/30 flex items-center justify-center text-xs font-semibold">Gender</div>
+                  <div class="text-[10px] text-white/30 mt-1">34%</div>
+                </div>
+                <div class="text-center">
+                  <div class="heatmap-cell h-10 rounded-lg bg-accent-amber/30 flex items-center justify-center text-xs font-semibold">Age</div>
+                  <div class="text-[10px] text-white/30 mt-1">22%</div>
+                </div>
+                <div class="text-center">
+                  <div class="heatmap-cell h-10 rounded-lg bg-accent-red/20 flex items-center justify-center text-xs font-semibold">Race</div>
+                  <div class="text-[10px] text-white/30 mt-1">28%</div>
+                </div>
+                <div class="text-center">
+                  <div class="heatmap-cell h-10 rounded-lg bg-accent-green/20 flex items-center justify-center text-xs font-semibold">Religion</div>
+                  <div class="text-[10px] text-white/30 mt-1">8%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section id="use-cases" class="relative py-24">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-navy-900/30 to-transparent"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Use Cases</h2>
+          <p class="text-white/50 text-lg">Protecting AI decisions across critical industries.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1">
+            <div class="w-10 h-10 rounded-lg bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-4 group-hover:bg-accent-blue/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.09-.67 2.06-1.69 2.42-1.77.62-4.56 1.43-8.56 1.43s-6.79-.81-8.56-1.43A2.507 2.507 0 010 18.4v-4.25m20.25 0c0 .66-.67 1.2-1.69 1.43-1.77.62-4.56 1.43-8.56 1.43s-6.79-.81-8.56-1.43C.67 15.2 0 14.66 0 14m20.25 0c0-.66-.67-1.2-1.69-1.43-1.77-.62-4.56-1.43-8.56-1.43s-6.79.81-8.56 1.43C.67 14.8 0 15.34 0 16" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Hiring Systems</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Ensure fair candidate screening and eliminate demographic bias in recruitment AI.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.05s">
+            <div class="w-10 h-10 rounded-lg bg-accent-green/10 border border-accent-green/20 flex items-center justify-center mb-4 group-hover:bg-accent-green/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Loan Approvals</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Prevent discriminatory lending decisions and ensure regulatory compliance.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.1s">
+            <div class="w-10 h-10 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mb-4 group-hover:bg-accent-cyan/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">Resume Screening</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Remove name-based and demographic bias from automated resume analysis.</p>
+          </div>
+          <div class="reveal glass-panel glass-panel-hover rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.15s">
+            <div class="w-10 h-10 rounded-lg bg-accent-amber/10 border border-accent-amber/20 flex items-center justify-center mb-4 group-hover:bg-accent-amber/20 transition-colors">
+              <svg class="w-5 h-5 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>
+            </div>
+            <h3 class="text-base font-bold mb-2">AI Assistants</h3>
+            <p class="text-sm text-white/50 leading-relaxed">Ensure chatbots and virtual assistants provide equitable responses to all users.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="relative py-32">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-accent-blue/5 to-transparent"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-blue/5 rounded-full blur-[128px]"></div>
+      <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6">
+          Build Fair AI Systems <span class="gradient-text">Today</span>
+        </h2>
+        <p class="text-lg text-white/50 mb-10 max-w-xl mx-auto">
+          Start detecting and neutralizing bias in your AI applications. No setup required.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/chat.html" class="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-accent-blue to-accent-cyan text-white hover:opacity-90 transition-all btn-glow">
+            Start Using
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+          <a href="/dashboard.html" class="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+            View Analytics
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center">
+              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <span class="text-sm font-bold">AI Bias Firewall</span>
+          </div>
+          <div class="flex items-center gap-6 text-sm text-white/40">
+            <a href="/chat.html" class="hover:text-white/70 transition-colors">Chat</a>
+            <a href="/dashboard.html" class="hover:text-white/70 transition-colors">Dashboard</a>
+            <a href="#" class="hover:text-white/70 transition-colors">GitHub</a>
+            <a href="#" class="hover:text-white/70 transition-colors">Docs</a>
+          </div>
+          <p class="text-xs text-white/25">Detecting bias. Building trust.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/js/landing.js"></script>
+  </body>
+</html>
