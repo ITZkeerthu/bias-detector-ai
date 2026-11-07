@@ -54,9 +54,10 @@ DISABILITY_KEYWORDS = [
 ]
 
 # Name patterns that may suggest national origin (simplified heuristic)
-HISPANIC_SURNAME_ENDINGS = ["ez", "es", "az", "oz", "iz", "rez", "nez", "dez"]
+# ("es" is intentionally excluded: it matches ordinary plurals such as "classes".)
+HISPANIC_SURNAME_ENDINGS = ["ez", "az", "oz", "iz", "rez", "nez", "dez"]
 ASIAN_NAME_INDICATORS = [
-    "nguyen", "chen", "wang", "li ", "zhang", "kim", "park", "lee ",
+    "nguyen", "chen", "wang", "li", "zhang", "kim", "park", "lee",
     "singh", "kumar", "patel", "sharma", "rao", "khan",
 ]
 
@@ -64,7 +65,15 @@ ASIAN_NAME_INDICATORS = [
 
 
 def _find_keywords(text_lower: str, keywords: List[str]) -> List[str]:
-    return [kw for kw in keywords if kw in text_lower]
+    """Return keywords present in the text as whole words/phrases.
+
+    Word-boundary matching avoids false positives such as "he" in "the" or
+    "age" in "management".
+    """
+    return [
+        kw for kw in keywords
+        if re.search(r"(?<![a-z0-9])" + re.escape(kw) + r"(?![a-z0-9])", text_lower)
+    ]
 
 
 def extract_attributes(text: str) -> List[Dict[str, Any]]:
@@ -105,15 +114,13 @@ def extract_attributes(text: str) -> List[Dict[str, Any]]:
     race_hits = _find_keywords(text_lower, RACE_KEYWORDS)
     # Name-origin heuristic (surname endings)
     name_origin_hit = None
-    words = text_lower.split()
-    for word in words:
+    for word in text_lower.split():
         clean = re.sub(r"[^a-z]", "", word)
         if any(clean.endswith(e) and len(clean) > 4 for e in HISPANIC_SURNAME_ENDINGS):
             name_origin_hit = word
             break
-        if any(indicator in text_lower for indicator in ASIAN_NAME_INDICATORS):
-            name_origin_hit = "name_pattern"
-            break
+    if not name_origin_hit and _find_keywords(text_lower, ASIAN_NAME_INDICATORS):
+        name_origin_hit = "name_pattern"
 
     if race_hits or name_origin_hit:
         method = "name_origin_classifier" if name_origin_hit else "rule_based_keywords"
