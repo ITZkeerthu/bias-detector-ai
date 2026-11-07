@@ -1,0 +1,17 @@
+name: detector-tests
+on:
+  push:
+    branches: [master]
+    paths: ["bias-detector-tool/**"]
+  pull_request:
+    paths: ["bias-detector-tool/**"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest -r bias-detector-tool/requirements.txt
+      - run: python -m pytest -q bias-detector-tool/tests
