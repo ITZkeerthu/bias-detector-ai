@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "node app/index.js",
-    "dev": "nodemon app/index.js"
+    "dev": "nodemon app/index.js",
+    "test": "node --test tests/*.test.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.15.0",

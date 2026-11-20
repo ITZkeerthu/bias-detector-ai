@@ -6,7 +6,15 @@ const ALGORITHM = 'aes-256-gcm';
 const KEY_LEN = 32;
 
 function deriveKey() {
-  const secret = config.encryptionSecret || 'fallback-change-me-in-production';
+  const secret = config.encryptionSecret;
+  if (!secret) {
+    // Never fall back to a publicly known key when real credentials are being stored.
+    if (config.nodeEnv === 'production') {
+      throw new Error('ENCRYPTION_SECRET must be set in production');
+    }
+    console.warn('[encryption] ENCRYPTION_SECRET not set; using an insecure development key');
+    return crypto.scryptSync('insecure-dev-only-secret', 'bias-firewall-salt', KEY_LEN);
+  }
   return crypto.scryptSync(secret, 'bias-firewall-salt', KEY_LEN);
 }
 
@@ -30,7 +38,7 @@ function decrypt(encryptedB64, ivB64, authTagB64) {
   const encrypted = Buffer.from(encryptedB64, 'base64');
   const decipher = crypto.createDecipheriv(ALGORITHM, key, iv);
   decipher.setAuthTag(authTag);
-  return decipher.update(encrypted) + decipher.final('utf8');
+  return Buffer.concat([decipher.update(encrypted), decipher.final()]).toString('utf8');
 }
 
 module.exports = { encrypt, decrypt };
