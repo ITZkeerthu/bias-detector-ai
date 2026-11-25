@@ -17,7 +17,23 @@ Return ONLY a JSON object with no markdown, no explanation:
 Score guide: 0-20 = LOW, 21-60 = MEDIUM, 61-100 = HIGH.`;
 
 function buildAuditPrompt(originalResponse, inputText, decisionPoints) {
-  return `ORIGINAL INPUT:\n${inputText.slice(0, 500)}\n\nAI RESPONSE TO AUDIT:\n${originalResponse}\n\nDETECTED INPUT SIGNALS:\n${decisionPoints.join(', ') || 'none'}`;
+  return `ORIGINAL INPUT:\n${inputText.slice(0, 500)}\n\nAI RESPONSE TO AUDIT:\n${originalResponse}\n\nDETECTED INPUT SIGNALS:\n${(decisionPoints || []).join(', ') || 'none'}`;
+}
+
+/**
+ * Parse the auditor's reply. Models often wrap the JSON in markdown fences or
+ * add a sentence before/after it, so fall back to the first {...} block.
+ */
+function parseAuditJson(text) {
+  const clean = String(text).replace(/```json|```/gi, '').trim();
+  try {
+    return JSON.parse(clean);
+  } catch {
+    const start = clean.indexOf('{');
+    const end = clean.lastIndexOf('}');
+    if (start === -1 || end <= start) throw new Error('No JSON object in auditor reply');
+    return JSON.parse(clean.slice(start, end + 1));
+  }
 }
 
 async function auditOutput({ originalResponse, inputText, decisionPoints, modelId }) {
@@ -29,9 +45,7 @@ async function auditOutput({ originalResponse, inputText, decisionPoints, modelI
       systemPrompt: AUDIT_SYSTEM,
     });
 
-    // Strip any markdown fences
-    const clean = text.replace(/```json|```/g, '').trim();
-    const parsed = JSON.parse(clean);
+    const parsed = parseAuditJson(text);
 
     const score = Math.max(0, Math.min(100, Number(parsed.output_bias_score) || 0));
     return {
@@ -50,4 +64,4 @@ function deriveConfidence(score) {
   return 'HIGH';
 }
 
-module.exports = { auditOutput };
+module.exports = { auditOutput, parseAuditJson, buildAuditPrompt };
