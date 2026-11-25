@@ -1,8 +1,20 @@
 'use strict';
 require('dotenv').config({ path: require('path').resolve(__dirname, '../../.env') });
 
+/** Parse an integer env var, falling back to the default when unset or not a number. */
+function intEnv(name, fallback) {
+  const n = parseInt(process.env[name], 10);
+  if (Number.isNaN(n)) {
+    if (process.env[name] !== undefined && process.env[name] !== '') {
+      console.warn(`[config] ${name} is not a number; using default ${fallback}`);
+    }
+    return fallback;
+  }
+  return n;
+}
+
 module.exports = {
-  port: parseInt(process.env.PORT || '3000', 10),
+  port: intEnv('PORT', 3000),
   nodeEnv: process.env.NODE_ENV || 'development',
   corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:5173',
 
@@ -20,6 +32,6 @@ module.exports = {
 
   encryptionSecret: process.env.ENCRYPTION_SECRET,
   biasDetectorUrl: process.env.BIAS_DETECTOR_URL || 'http://localhost:5001',
-  biasThreshold: parseInt(process.env.BIAS_THRESHOLD || '30', 10),
+  biasThreshold: intEnv('BIAS_THRESHOLD', 30),
   allowForceBias: process.env.ALLOW_FORCE_BIAS === 'true',
 };
